@@ -1,8 +1,5 @@
 package pkgGame;
 
-import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
-
 import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
 import pkgHelper.PuzzleViolation;
@@ -161,17 +158,8 @@ public class Sudoku extends LatinSquare {
 
 		return reg;
 	}
-	/**
-	 * shuffleArray - shuffle a given one-dimensions array
-	 * 
-	 * @param ar
-	 * @since Lab #3
-	 * @return a one dimensional array
-	 */
 	
-	private void shuffleArray(int[] ar) {
-		
-	}
+ 
 	
 	@Override
 	public boolean hasDuplicates()
@@ -283,28 +271,6 @@ public class Sudoku extends LatinSquare {
 		
 		return true;
 	}
-	public int getRegionNbr(int Col, int Row) {
-		int i = (Col / iSqrtSize) + ((Row / iSqrtSize) * iSqrtSize);
-
-		return i;
-	}
-	private void fillDiagonalRegions() {
-		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
-		int[][] workPuzzle=this.getPuzzle();
-		int testValue;
-		for(int i=0;i<iSqrtSize-1;i++) {
-			for(int j=0;j<iSqrtSize-1;j++) {
-				testValue=ThreadLocalRandom.current().nextInt(1,9+1);
-				while(regFiller.contains(testValue)) {
-					testValue=ThreadLocalRandom.current().nextInt(1,9+1);
-				}
-				regFiller.add(testValue);
-				workPuzzle[i][j]=testValue;
-				
-				
-				
-			}
-		}
-		regFiller.clear();
-	}
+	
+	
 }
