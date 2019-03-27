@@ -156,5 +156,14 @@ public class LatinSquareTest {
 		{
 			System.out.println(ePV);
 		}
-	}
+	}	
+		public void ePuzzleViolationTest1()
+		{
+			for (ePuzzleViolation ePV: ePuzzleViolation.values())
+			{
+				System.out.println(ePV);
+			}
+	
+		}
+	
 }
