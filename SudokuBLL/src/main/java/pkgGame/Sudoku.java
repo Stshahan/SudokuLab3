@@ -158,8 +158,17 @@ public class Sudoku extends LatinSquare {
 
 		return reg;
 	}
+	/**
+	 * shuffleArray - shuffle a given one-dimensions array
+	 * 
+	 * @param ar
+	 * @since Lab #3
+	 * @return a one dimensional array
+	 */
 	
- 
+	private void shuffleArray(int[] ar) {
+		
+	}
 	
 	@Override
 	public boolean hasDuplicates()
