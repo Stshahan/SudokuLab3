@@ -279,7 +279,7 @@ public class Sudoku extends LatinSquare {
 		int[][] workPuzzle=this.getPuzzle();
 		int testValue;
 		for(int numRegions=0;numRegions<=iSqrtSize;numRegions++) {
-			int regStartValue=iSqrtSize*numRegions+numRegions;
+			int regStartValue=iSqrtSize*(numRegions*2);
 			for(int i=0;i<iSqrtSize;i++) {
 				for(int j=0;j<iSqrtSize;j++) {
 					testValue=ThreadLocalRandom.current().nextInt(1,iSize+1);
