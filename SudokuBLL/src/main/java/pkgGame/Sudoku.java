@@ -1,5 +1,8 @@
 package pkgGame;
 
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
 import pkgHelper.PuzzleViolation;
@@ -271,6 +274,27 @@ public class Sudoku extends LatinSquare {
 		
 		return true;
 	}
-	
-	
+	private void fillDiagonalRegions() {
+		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
+		int[][] workPuzzle=this.getPuzzle();
+		int testValue;
+		for(int numRegions=0;numRegions<=iSqrtSize;numRegions++) {
+			int regStartValue=iSqrtSize*numRegions+numRegions;
+			for(int i=0;i<iSqrtSize;i++) {
+				for(int j=0;j<iSqrtSize;j++) {
+					testValue=ThreadLocalRandom.current().nextInt(1,iSize+1);
+					while(regFiller.contains(testValue)) {
+						testValue=ThreadLocalRandom.current().nextInt(1,iSize+1);
+					}
+					regFiller.add(testValue);
+					workPuzzle[regStartValue+i][regStartValue+j]=testValue;
+				
+				
+				
+				}
+			}
+			regFiller.clear();
+		}
+		this.setLatinSquare(workPuzzle);
+	}
 }
