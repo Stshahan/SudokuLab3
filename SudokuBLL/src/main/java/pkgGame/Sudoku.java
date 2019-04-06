@@ -297,4 +297,27 @@ public class Sudoku extends LatinSquare {
 		}
 		this.setLatinSquare(workPuzzle);
 	}
+	
+
+	public void setRegion(int r) {
+
+		int[][]setter = new int[iSqrtSize][iSqrtSize];
+
+
+		int i = (r * iSqrtSize) / iSqrtSize;
+		int j = (r % iSqrtSize) * iSqrtSize;		
+		int jMax = j + iSqrtSize;
+		int iMax = i + iSqrtSize;
+		int iCnt = 0;
+
+		for (; i < iMax; i++) {
+			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
+				setter[i][j] = iCnt;
+				iCnt++;
+			
+			}
+	}
+	
+
+	}
 }
