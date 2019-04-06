@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 public class SudokuTest {
-/*
+
 	@Test
 	public void Sudoku_Test1() {
 		try {
@@ -197,7 +197,7 @@ public class SudokuTest {
 			fail("Test failed to build a Sudoku");
 		}
 		
-	}	*/
+	}	
 
 	@Test
 	public void TestRegionNbr()
@@ -245,7 +245,23 @@ public class SudokuTest {
 		
 			Sudoku s1 = new Sudoku(puzzle);
 			s1.setRegion(0);
-			System.out.println(s1.getRegion(0));
+			s1.setRegion(4);
+			s1.setRegion(8);
+		for (int i = 0; i<puzzle.length; i++) {
+		//for (int j = 0; i<puzzle.length; j++) {
+			System.out.println(Arrays.toString((s1.getRow(i))));
+			
+int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
+					{4, 5, 6, 0, 0, 0, 0, 0, 0},
+					{7, 8, 9, 0, 0, 0, 0, 0, 0},
+					{0, 0, 0, 1, 2, 3, 0, 0, 0},
+					{0, 0, 0, 4, 5, 6, 0, 0, 0},
+					{0, 0, 0, 7, 8, 9, 0, 0, 0},
+					{0, 0, 0, 0, 0, 0, 1, 2, 3},
+					{0, 0, 0, 0, 0, 0, 4, 5, 6},
+					{0, 0, 0, 0, 0, 0, 7, 8, 9}};
+				}
+		
 		
 
 
