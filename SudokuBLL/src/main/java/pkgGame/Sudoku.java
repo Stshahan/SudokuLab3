@@ -329,4 +329,12 @@ public class Sudoku extends LatinSquare {
 	
 
 	}
+	public void PrintPuzzle() {
+		for(int i=0;i<super.getLatinSquare().length;i++) {
+			for(int j=0;j<super.getLatinSquare().length;j++) {
+				System.out.print(super.getLatinSquare()[i][j] + " ");
+			}
+			System.out.println("\n");
+		}
+	}
 }
