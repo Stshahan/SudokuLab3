@@ -12,8 +12,10 @@ public class SudokuPrivateMethodsTest {
 	}
 
 	@Test
-	public void FillDiagonalRegions() {
-		//test filldiagonalregions here.
+	public void FillDiagonalRegions() throws Exception {
+		Sudoku testPuzzle = new Sudoku(9);
+		
+		testPuzzle.fillDiagonalRegions();
 		
 	}
 

@@ -67,11 +67,9 @@ public class Sudoku extends LatinSquare {
 	 * 
 	 * @version 1.2
 	 * @since Lab #2
-	 * @param puzzle
-	 *            - given (working) Sudoku puzzle. Use for testing
 	 * @throws Exception will be thrown if the length of the puzzle do not have a whole number square root
 	 */
-	public Sudoku(int[][] puzzle) throws Exception {
+	public Sudoku() throws Exception {
 		super(puzzle);
 		this.iSize = puzzle.length;
 		double SQRT = Math.sqrt(iSize);
@@ -283,6 +281,7 @@ public class Sudoku extends LatinSquare {
 		
 	
 	}
+	//something weird about the access. why private??
 	private void fillDiagonalRegions() {
 		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
 		int[][] workPuzzle=this.getPuzzle();
@@ -307,7 +306,15 @@ public class Sudoku extends LatinSquare {
 		this.setLatinSquare(workPuzzle);
 	}
 	
-
+	public int[][] fillDiagonalTest(int sizeOfPuzzle) throws Exception {
+		
+		Sudoku testPuzzle = new Sudoku(sizeOfPuzzle);
+		
+		testPuzzle.fillDiagonalRegions();
+		
+		
+		
+	}
 	public void setRegion(int r) {
 
 		int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
