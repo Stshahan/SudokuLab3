@@ -274,6 +274,15 @@ public class Sudoku extends LatinSquare {
 		
 		return true;
 	}
+	
+	public int getRegionNbr(int iCol, int iRow) {
+
+		int i = (iCol / iSqrtSize) + ((iRow / iSqrtSize) * iSqrtSize);
+
+		return i;
+		
+	
+	}
 	private void fillDiagonalRegions() {
 		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
 		int[][] workPuzzle=this.getPuzzle();
