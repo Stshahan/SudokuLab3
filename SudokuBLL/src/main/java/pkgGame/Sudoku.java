@@ -69,7 +69,7 @@ public class Sudoku extends LatinSquare {
 	 * @since Lab #2
 	 * @throws Exception will be thrown if the length of the puzzle do not have a whole number square root
 	 */
-	public Sudoku() throws Exception {
+	public Sudoku(int[][] puzzle) throws Exception {
 		super(puzzle);
 		this.iSize = puzzle.length;
 		double SQRT = Math.sqrt(iSize);
@@ -306,7 +306,7 @@ public class Sudoku extends LatinSquare {
 		this.setLatinSquare(workPuzzle);
 	}
 	
-	public int[][] fillDiagonalTest(int sizeOfPuzzle) throws Exception {
+/*	public int[][] fillDiagonalTest(int sizeOfPuzzle) throws Exception {
 		
 		Sudoku testPuzzle = new Sudoku(sizeOfPuzzle);
 		
@@ -314,7 +314,7 @@ public class Sudoku extends LatinSquare {
 		
 		
 		
-	}
+	}*/
 	public void setRegion(int r) {
 
 		int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];

@@ -267,7 +267,7 @@ int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
 
 	}
 	@Test
-	private void PrintStars() throws Exception {
+	public void PrintStars_Test() throws Exception {
 		int[][] puzzle = {
 				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
 				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
