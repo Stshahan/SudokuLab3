@@ -11,12 +11,12 @@ public class SudokuPrivateMethodsTest {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*@Test
+	@Test
 	public void FillDiagonalRegions() throws Exception {
 		Sudoku testPuzzle = new Sudoku(9);
 		
 		testPuzzle.fillDiagonalRegions();
 		
-	}*/
+	}
 
 }

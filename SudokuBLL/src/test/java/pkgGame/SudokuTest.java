@@ -347,7 +347,7 @@ System.out.println(Arrays.toString(s1.getRegion(0)));
 }
 
 
-public void shuffleArray(int[] ar) {
+private void shuffleArray(int[] ar) {
 		Random rand = ThreadLocalRandom.current();  
 		for (int i = ar.length - 1; i > 0; i--)
 		    {
