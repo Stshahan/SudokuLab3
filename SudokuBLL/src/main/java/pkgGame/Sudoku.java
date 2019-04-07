@@ -280,7 +280,7 @@ public class Sudoku extends LatinSquare {
 
 		return i;
 		
-	
+	 
 	}
 	//something weird about the access. why private??
 	private void fillDiagonalRegions() {
