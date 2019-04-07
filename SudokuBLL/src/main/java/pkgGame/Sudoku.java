@@ -361,20 +361,20 @@ public void shuffleArray(int[] ar) {
 
 
 public void shuffleRegion(int r) {
-int[] region = new int[super.getLatinSquare().length];
-region = this.getRegion(r);
-int[] shuffledRegion = new int[super.getLatinSquare().length];
-shuffleArray(region);
+	int[] region = new int[super.getLatinSquare().length];
+	region = this.getRegion(r);
+	int[] shuffledRegion = new int[super.getLatinSquare().length];
+	shuffleArray(region);
 
-int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
-setter =super.getLatinSquare();
-int i = (r / iSqrtSize) * iSqrtSize;
-int j = (r % iSqrtSize) * iSqrtSize;		
-int jMax = j + iSqrtSize;
-int iMax = i + iSqrtSize;
-int iCnt=0;
+	int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
+	setter =super.getLatinSquare();
+	int i = (r / iSqrtSize) * iSqrtSize;
+	int j = (r % iSqrtSize) * iSqrtSize;		
+	int jMax = j + iSqrtSize;
+	int iMax = i + iSqrtSize;
+	int iCnt=0;
 
-for (; i < iMax; i++) {
+	for (; i < iMax; i++) {
 	for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
 		setter[i][j] = region[iCnt];
 		iCnt++;

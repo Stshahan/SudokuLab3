@@ -261,26 +261,12 @@ public class SudokuTest {
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 		
+		int [] Region4 = {1,2,3,4,5,6,7,8,9};
 			Sudoku s1 = new Sudoku(puzzle);
 			s1.setRegion(0);
 			s1.setRegion(4);
-			s1.setRegion(8);
-		for (int i = 0; i<puzzle.length; i++) {
-		//for (int j = 0; i<puzzle.length; j++) {
-			System.out.println(Arrays.toString((s1.getRow(i))));
-			
-int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
-					{4, 5, 6, 0, 0, 0, 0, 0, 0},
-					{7, 8, 9, 0, 0, 0, 0, 0, 0},
-					{0, 0, 0, 1, 2, 3, 0, 0, 0},
-					{0, 0, 0, 4, 5, 6, 0, 0, 0},
-					{0, 0, 0, 7, 8, 9, 0, 0, 0},
-					{0, 0, 0, 0, 0, 0, 1, 2, 3},
-					{0, 0, 0, 0, 0, 0, 4, 5, 6},
-					{0, 0, 0, 0, 0, 0, 7, 8, 9}};
-				}
-		
-		
+			s1.setRegion(8);		
+		assertTrue(Arrays.equals(Region4, s1.getRegion(4)));
 
 
 	}
@@ -302,47 +288,47 @@ int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 		
 			Sudoku s1 = new Sudoku(puzzle);
+			int [] Region4 = {1,2,3,4,5,6,7,8,9};
 			s1.setRegion(0);
 			s1.setRegion(4);
 			s1.setRegion(8);
 			s1.shuffleRegion(0);
 			s1.shuffleRegion(4);
-		for (int i = 0; i<puzzle.length; i++) {
-		//for (int j = 0; i<puzzle.length; j++) {
-			System.out.println(Arrays.toString((s1.getRow(i))));
-			
-int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
-					{4, 5, 6, 0, 0, 0, 0, 0, 0},
-					{7, 8, 9, 0, 0, 0, 0, 0, 0},
-					{0, 0, 0, 1, 2, 3, 0, 0, 0},
-					{0, 0, 0, 4, 5, 6, 0, 0, 0},
-					{0, 0, 0, 7, 8, 9, 0, 0, 0},
-					{0, 0, 0, 0, 0, 0, 1, 2, 3},
-					{0, 0, 0, 0, 0, 0, 4, 5, 6},
-					{0, 0, 0, 0, 0, 0, 7, 8, 9}};
-				}
+			assertFalse(Arrays.equals(Region4, s1.getRegion(4)));
 	}
+	@Test
+	public void shuffleRegion_Test2() throws Exception
+	{
+		//	This test will test a partial sudoku...  
+		//	Everything zero, but there's a duplciate value in the region (not row/column)
+ 
+		int[][] puzzle = {
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+		
+			Sudoku s1 = new Sudoku(puzzle);
+			int [] Region4 = {0,0,0,0,0,0,0,0,0};
+			s1.setRegion(0);
+			s1.setRegion(4);
+			s1.setRegion(8);
+			s1.shuffleRegion(0);
+			s1.shuffleRegion(4);
+			assertFalse(Arrays.equals(Region4, s1.getRegion(4)));
+	}
+	
 @Test	
 public void shuffleArray_Test() throws Exception
 		{
 int[] a= {1,2,3,4,5,6,7,8,9};
 shuffleArray(a);
 System.out.println(Arrays.toString(a));
-
-int[][] puzzle={{1, 2, 3, 0, 0, 0, 0, 0, 0},
-		{4, 5, 6, 0, 0, 0, 0, 0, 0},
-		{7, 8, 9, 0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 1, 2, 3, 0, 0, 0},
-		{0, 0, 0, 4, 5, 6, 0, 0, 0},
-		{0, 0, 0, 7, 8, 9, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0, 1, 2, 3},
-		{0, 0, 0, 0, 0, 0, 4, 5, 6},
-		{0, 0, 0, 0, 0, 0, 7, 8, 9}};
-	
-
-Sudoku s1 = new Sudoku(puzzle);
-System.out.println();
-System.out.println(Arrays.toString(s1.getRegion(0)));
 
 }
 
