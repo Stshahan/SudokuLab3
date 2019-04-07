@@ -316,7 +316,7 @@ public class Sudoku extends LatinSquare {
 		
 		
 	}*/
-	public void setRegion(int r) {
+	public void setRegion(int r, int [] region) {
 
 		int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
 		setter =super.getLatinSquare();
@@ -324,11 +324,10 @@ public class Sudoku extends LatinSquare {
 		int j = (r % iSqrtSize) * iSqrtSize;		
 		int jMax = j + iSqrtSize;
 		int iMax = i + iSqrtSize;
-		int iCnt = 1;
-
+		int iCnt = 0;
 		for (; i < iMax; i++) {
 			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
-				setter[i][j] = iCnt;
+				setter[i][j] = region[iCnt];
 				iCnt++;
 			
 			}
@@ -363,22 +362,7 @@ public void shuffleArray(int[] ar) {
 public void shuffleRegion(int r) {
 	int[] region = new int[super.getLatinSquare().length];
 	region = this.getRegion(r);
-	int[] shuffledRegion = new int[super.getLatinSquare().length];
 	shuffleArray(region);
-
-	int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
-	setter =super.getLatinSquare();
-	int i = (r / iSqrtSize) * iSqrtSize;
-	int j = (r % iSqrtSize) * iSqrtSize;		
-	int jMax = j + iSqrtSize;
-	int iMax = i + iSqrtSize;
-	int iCnt=0;
-
-	for (; i < iMax; i++) {
-	for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
-		setter[i][j] = region[iCnt];
-		iCnt++;
-	}
-}
+	this.setRegion(r,region);
 }
 }

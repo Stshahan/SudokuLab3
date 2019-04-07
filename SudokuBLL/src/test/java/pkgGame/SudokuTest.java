@@ -261,15 +261,51 @@ public class SudokuTest {
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 		
-		int [] Region4 = {1,2,3,4,5,6,7,8,9};
+		int [] testSetRegion = {1,2,3,4,5,6,7,8,9};
 			Sudoku s1 = new Sudoku(puzzle);
-			s1.setRegion(0);
-			s1.setRegion(4);
-			s1.setRegion(8);		
-		assertTrue(Arrays.equals(Region4, s1.getRegion(4)));
+			s1.setRegion(0, testSetRegion);
+			s1.setRegion(4,testSetRegion);
+			s1.setRegion(8,testSetRegion);		
+		assertTrue(Arrays.equals(testSetRegion, s1.getRegion(4)));
 
 
 	}
+	
+	@Test
+	public void setRegion_Test2() throws Exception
+	{
+		//	This test will test a partial sudoku...  
+		//	Everything zero, but there's a duplciate value in the region (not row/column)
+ 
+		int[][] puzzle = {
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 }
+				 };
+		
+		int [] testSetRegion = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+			Sudoku s1 = new Sudoku(puzzle);
+			s1.setRegion(0, testSetRegion);
+			s1.setRegion(4,testSetRegion);
+			s1.setRegion(8,testSetRegion);		
+		assertTrue(Arrays.equals(testSetRegion, s1.getRegion(4)));
+
+
+	}
+	
 	@Test
 	public void shuffleRegion_Test() throws Exception
 	{
@@ -288,13 +324,13 @@ public class SudokuTest {
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 		
 			Sudoku s1 = new Sudoku(puzzle);
-			int [] Region4 = {1,2,3,4,5,6,7,8,9};
-			s1.setRegion(0);
-			s1.setRegion(4);
-			s1.setRegion(8);
+			int [] testSetRegion = {1,2,3,4,5,6,7,8,9};
+			s1.setRegion(0, testSetRegion);
+			s1.setRegion(4, testSetRegion);
+			s1.setRegion(8, testSetRegion);
 			s1.shuffleRegion(0);
 			s1.shuffleRegion(4);
-			assertFalse(Arrays.equals(Region4, s1.getRegion(4)));
+			assertFalse(Arrays.equals(testSetRegion, s1.getRegion(4)));
 	}
 	@Test
 	public void shuffleRegion_Test2() throws Exception
@@ -314,13 +350,14 @@ public class SudokuTest {
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 		
 			Sudoku s1 = new Sudoku(puzzle);
-			int [] Region4 = {0,0,0,0,0,0,0,0,0};
-			s1.setRegion(0);
-			s1.setRegion(4);
-			s1.setRegion(8);
+			int [] testSetRegion = {1,2,3,4,5,6,7,8,9};
+			s1.setRegion(0, testSetRegion);
+			s1.setRegion(4, testSetRegion);
+			s1.setRegion(8, testSetRegion);
 			s1.shuffleRegion(0);
 			s1.shuffleRegion(4);
-			assertFalse(Arrays.equals(Region4, s1.getRegion(4)));
+			
+			assertFalse(Arrays.equals(testSetRegion, s1.getRegion(4)));
 	}
 	
 @Test	
@@ -329,9 +366,7 @@ public void shuffleArray_Test() throws Exception
 int[] a= {1,2,3,4,5,6,7,8,9};
 shuffleArray(a);
 System.out.println(Arrays.toString(a));
-
 }
-
 
 private void shuffleArray(int[] ar) {
 		Random rand = ThreadLocalRandom.current();  
