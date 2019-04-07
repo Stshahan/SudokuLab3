@@ -281,4 +281,6 @@ int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
 		Sudoku LS= new Sudoku(puzzle);
 		LS.PrintPuzzle();
 	}
+	
+	
 }

@@ -1,6 +1,7 @@
 package pkgGame;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import pkgEnum.ePuzzleViolation;
@@ -344,4 +345,39 @@ public class Sudoku extends LatinSquare {
 			System.out.println("\n");
 		}
 	}
+
+
+
+public void shuffleArray(int[] ar) {
+	Random rand = ThreadLocalRandom.current();  
+	for (int i = ar.length - 1; i > 0; i--)
+	    {
+	      int index = rand.nextInt(i + 1);
+	      int a = ar[index];
+	      ar[index] = ar[i];
+	      ar[i] = a;
+		}
+}
+
+
+public void shuffleRegion(int r) {
+int[] region = new int[super.getLatinSquare().length];
+region = this.getRegion(r);
+int[] shuffledRegion = new int[super.getLatinSquare().length];
+shuffleArray(region);
+
+int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
+setter =super.getLatinSquare();
+int i = (r / iSqrtSize) * iSqrtSize;
+int j = (r % iSqrtSize) * iSqrtSize;		
+int jMax = j + iSqrtSize;
+int iMax = i + iSqrtSize;
+
+
+for (; i < iMax; i++) {
+	for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
+		setter[i][j] = region[i];		
+	}
+}
+}
 }
