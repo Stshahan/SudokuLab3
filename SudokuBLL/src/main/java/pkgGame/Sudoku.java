@@ -372,8 +372,10 @@ private void shuffleRegion(int r) {
 	shuffleArray(region);
 	this.setRegion(r,region);
 }
-
-private void FillDiagonalRegions() {
+//STSBuild - I think we should be using this since it 
+//incorporates both setRegion and shuffleRegion, both versions of 
+//fillDiagonalRegions work though...
+/*private void FillDiagonalRegions1() {
 	int diagonalRows = iSqrtSize + 1;
 	int iCnt=1;
 	int[] regionSetArray = new int[this.getLatinSquare().length];
@@ -388,7 +390,7 @@ private void FillDiagonalRegions() {
 	this.setRegion(i, regionSetArray);
 	this.shuffleRegion(i);}
 	
-}
+}*/
 
 
 }
