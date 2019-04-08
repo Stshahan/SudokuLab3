@@ -366,4 +366,23 @@ public void shuffleRegion(int r) {
 	shuffleArray(region);
 	this.setRegion(r,region);
 }
+
+public void FillDiagonalRegions() {
+	int diagonalRows = iSqrtSize + 1;
+	int iCnt=1;
+	int[] regionSetArray = new int[this.getLatinSquare().length];
+	
+	for (int j = 0; j<this.getLatinSquare().length; j++) {
+		regionSetArray[j] = iCnt;
+		iCnt++;
+	}
+	
+			
+	for (int i = 0; i<this.getLatinSquare().length; i += diagonalRows ) {
+	this.setRegion(i, regionSetArray);
+	this.shuffleRegion(i);}
+	
+}
+
+
 }
