@@ -1,7 +1,9 @@
 package pkgGame;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+
 
 import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
@@ -67,8 +69,6 @@ public class Sudoku extends LatinSquare {
 	 * 
 	 * @version 1.2
 	 * @since Lab #2
-	 * @param puzzle
-	 *            - given (working) Sudoku puzzle. Use for testing
 	 * @throws Exception will be thrown if the length of the puzzle do not have a whole number square root
 	 */
 	public Sudoku(int[][] puzzle) throws Exception {
@@ -148,13 +148,13 @@ public class Sudoku extends LatinSquare {
 
 
 		int i = (r / iSqrtSize) * iSqrtSize;
-		int j = (r / iSqrtSize) * iSqrtSize;		
+		int j = (r % iSqrtSize) * iSqrtSize;		
 		int jMax = j + iSqrtSize;
 		int iMax = i + iSqrtSize;
 		int iCnt = 0;
 
 		for (; i < iMax; i++) {
-			for (; j < jMax; j++) {
+			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
 				reg[iCnt++] = super.getLatinSquare()[i][j];
 			}
 		}
@@ -281,34 +281,44 @@ public class Sudoku extends LatinSquare {
 
 		return i;
 		
-	
+	 
 	}
+	
 	private void fillDiagonalRegions() {
 		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
-		int[][] workPuzzle=this.getPuzzle();
 		int testValue;
-		for(int numRegions = 0;numRegions<=iSqrtSize;numRegions++) {
-			int regStartValue = iSqrtSize*(numRegions*2);
-			for(int i = 0;i < iSqrtSize; i++) {
-				for(int j=0;j<iSqrtSize;j++) {
+		this.setbIgnoreZero(true);
+		for(int numRegions = 0;numRegions<iSqrtSize;numRegions++) {
+			int regStartValue = iSqrtSize*(numRegions)+numRegions;
+			
+			
+			
+			int[]randomRegion=new int[iSize];
+		
+			for(int i = 0;i < iSize; i++) {
 					testValue = ThreadLocalRandom.current().nextInt(1,iSize+1);
 					while(regFiller.contains(testValue)) {
 						testValue=ThreadLocalRandom.current().nextInt(1,iSize+1);
 					}
 					regFiller.add(testValue);
-					workPuzzle[regStartValue+i][regStartValue+j]=testValue;
+					randomRegion[i]=testValue;
+					
 				
 				
 				
-				}
 			}
 			regFiller.clear();
+			this.setRegion(regStartValue, randomRegion);
 		}
-		this.setLatinSquare(workPuzzle);
+	}
+
+	public void testFillDiagonal() {
+		
+		this.fillDiagonalRegions();
+		
 	}
 	
-
-	public void setRegion(int r) {
+	private void setRegion(int r, int [] region) {
 
 		int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
 		setter =super.getLatinSquare();
@@ -316,11 +326,10 @@ public class Sudoku extends LatinSquare {
 		int j = (r % iSqrtSize) * iSqrtSize;		
 		int jMax = j + iSqrtSize;
 		int iMax = i + iSqrtSize;
-		int iCnt = 1;
-
+		int iCnt = 0;
 		for (; i < iMax; i++) {
 			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
-				setter[i][j] = iCnt;
+				setter[i][j] = region[iCnt];
 				iCnt++;
 			
 			}
@@ -328,6 +337,11 @@ public class Sudoku extends LatinSquare {
 	}
 	
 
+	}
+	
+	public void testSetRegion(int r, int [] region) {
+		
+		this.setRegion(r, region);
 	}
 	public void PrintPuzzle() {
 		for(int i=0;i<super.getLatinSquare().length;i++) {
@@ -337,4 +351,46 @@ public class Sudoku extends LatinSquare {
 			System.out.println("\n");
 		}
 	}
+
+
+
+private void shuffleArray(int[] ar) {
+	Random rand = ThreadLocalRandom.current();  
+	for (int i = ar.length - 1; i > 0; i--)
+	    {
+	      int index = rand.nextInt(i + 1);
+	      int a = ar[index];
+	      ar[index] = ar[i];
+	      ar[i] = a;
+		}
+}
+
+
+private void shuffleRegion(int r) {
+	int[] region = new int[super.getLatinSquare().length];
+	region = this.getRegion(r);
+	shuffleArray(region);
+	this.setRegion(r,region);
+}
+//STSBuild - I think we should be using this since it 
+//incorporates both setRegion and shuffleRegion, both versions of 
+//fillDiagonalRegions work though...
+/*private void FillDiagonalRegions1() {
+	int diagonalRows = iSqrtSize + 1;
+	int iCnt=1;
+	int[] regionSetArray = new int[this.getLatinSquare().length];
+	
+	for (int j = 0; j<this.getLatinSquare().length; j++) {
+		regionSetArray[j] = iCnt;
+		iCnt++;
+	}
+	
+			
+	for (int i = 0; i<this.getLatinSquare().length; i += diagonalRows ) {
+	this.setRegion(i, regionSetArray);
+	this.shuffleRegion(i);}
+	
+}*/
+
+
 }
