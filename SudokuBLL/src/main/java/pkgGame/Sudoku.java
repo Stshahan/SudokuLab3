@@ -290,8 +290,8 @@ public class Sudoku extends LatinSquare {
 		for(int numRegions = 0;numRegions<=iSqrtSize;numRegions++) {
 			int regStartValue = iSqrtSize*(numRegions*2);
 			
-			this.setRegion(regStartValue,workPuzzle);
-			workPuzzle.
+			//this.setRegion(regStartValue,workPuzzle[regStartValue]);
+			
 		
 			for(int i = 0;i < iSqrtSize; i++) {
 				for(int j=0;j<iSqrtSize;j++) {
@@ -321,6 +321,9 @@ public class Sudoku extends LatinSquare {
 		
 		
 	}*/
+	
+	public void testFillDiagonal
+	
 	public void setRegion(int r, int [] region) {
 
 		int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
