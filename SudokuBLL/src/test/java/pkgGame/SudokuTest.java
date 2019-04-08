@@ -3,6 +3,8 @@ package pkgGame;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.junit.Test;
 
@@ -225,6 +227,7 @@ public class SudokuTest {
 		
 		assertTrue(Arrays.equals(Region5, s1.getRegion(5)));
 		
+	
 	}
 	@Test
 	public void setRegion_Test() throws Exception
@@ -266,19 +269,16 @@ int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
 
 
 	}
-	@Teste
-	private void PrintStars() throws Exception {
-		int[][] puzzle = {
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
-				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' } };
-		Sudoku LS= new Sudoku(puzzle);
-		LS.PrintPuzzle();
+	@Test
+
+	private void PrintStars() {
+		for(int i=0;i<=20;i++) {
+			System.out.print("*");
+			System.out.println();
+		}
 	}
+
+
+
+	
 }
