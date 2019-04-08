@@ -283,7 +283,7 @@ public class Sudoku extends LatinSquare {
 		
 	 
 	}
-	//something weird about the access. why private??
+	
 	private void fillDiagonalRegions() {
 		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
 		int testValue;
@@ -291,7 +291,7 @@ public class Sudoku extends LatinSquare {
 		for(int numRegions = 0;numRegions<iSqrtSize;numRegions++) {
 			int regStartValue = iSqrtSize*(numRegions)+numRegions;
 			
-			//this.setRegion(regStartValue,workPuzzle[]);
+			
 			
 			int[]randomRegion=new int[iSize];
 		
@@ -303,7 +303,7 @@ public class Sudoku extends LatinSquare {
 					regFiller.add(testValue);
 					randomRegion[i]=testValue;
 					
-				//workPuzzle.getRegion(regionStartValue)[i][j] = testValue;
+				
 				
 				
 			}
