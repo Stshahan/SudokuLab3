@@ -318,7 +318,7 @@ public class Sudoku extends LatinSquare {
 		
 	}
 	
-	public void setRegion(int r, int [] region) {
+	private void setRegion(int r, int [] region) {
 
 		int[][]setter = new int[super.getLatinSquare().length][super.getLatinSquare().length];
 		setter =super.getLatinSquare();
@@ -338,6 +338,11 @@ public class Sudoku extends LatinSquare {
 	
 
 	}
+	
+	public void testSetRegion(int r, int [] region) {
+		
+		this.setRegion(r, region);
+	}
 	public void PrintPuzzle() {
 		for(int i=0;i<super.getLatinSquare().length;i++) {
 			for(int j=0;j<super.getLatinSquare().length;j++) {
@@ -349,7 +354,7 @@ public class Sudoku extends LatinSquare {
 
 
 
-public void shuffleArray(int[] ar) {
+private void shuffleArray(int[] ar) {
 	Random rand = ThreadLocalRandom.current();  
 	for (int i = ar.length - 1; i > 0; i--)
 	    {
@@ -361,10 +366,29 @@ public void shuffleArray(int[] ar) {
 }
 
 
-public void shuffleRegion(int r) {
+private void shuffleRegion(int r) {
 	int[] region = new int[super.getLatinSquare().length];
 	region = this.getRegion(r);
 	shuffleArray(region);
 	this.setRegion(r,region);
 }
+
+private void FillDiagonalRegions() {
+	int diagonalRows = iSqrtSize + 1;
+	int iCnt=1;
+	int[] regionSetArray = new int[this.getLatinSquare().length];
+	
+	for (int j = 0; j<this.getLatinSquare().length; j++) {
+		regionSetArray[j] = iCnt;
+		iCnt++;
+	}
+	
+			
+	for (int i = 0; i<this.getLatinSquare().length; i += diagonalRows ) {
+	this.setRegion(i, regionSetArray);
+	this.shuffleRegion(i);}
+	
+}
+
+
 }

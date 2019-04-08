@@ -17,7 +17,7 @@ public class SudokuPrivateMethodsTest {
 		Sudoku testPuzzle = new Sudoku(emptyPuzzle);
 		int[] emptyRegion=new int[] {0,0,0,0,0,0,0,0,0};
 		for(int i = 0; i < 9; i++) {
-			testPuzzle.setRegion(i, emptyRegion);
+			testPuzzle.testSetRegion(i, emptyRegion);
 		}
 		testPuzzle.testFillDiagonal();
 		
@@ -35,3 +35,4 @@ public class SudokuPrivateMethodsTest {
 	}
 
 }
+

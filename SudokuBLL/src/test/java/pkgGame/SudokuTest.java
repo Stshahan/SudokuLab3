@@ -244,7 +244,7 @@ public class SudokuTest {
 		Sudoku LS= new Sudoku(puzzle);
 		LS.PrintPuzzle();
 	}
-	@Test
+	/*@Test
 	public void setRegion_Test() throws Exception
 	{
 		//	This test will test a partial sudoku...  
@@ -359,7 +359,38 @@ public class SudokuTest {
 			
 			assertFalse(Arrays.equals(testSetRegion, s1.getRegion(4)));
 	}
+	*/
 	
+	/*
+	@Test
+	public void FillDiagonalRegion_Test2() throws Exception
+	{
+		//	This test will test a partial sudoku...  
+		//	Everything zero, but there's a duplciate value in the region (not row/column)
+ 
+		int[][] puzzle = {
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+		
+			Sudoku s1 = new Sudoku(puzzle);
+			int [] testSetRegion = {1,2,3,4,5,6,7,8,9};
+			s1.FillDiagonalRegions();
+			for (int i = 0; i<puzzle.length; i++) {
+				//for (int j = 0; i<puzzle.length; j++) {
+					System.out.println(Arrays.toString((s1.getRow(i))));
+			
+			}
+			System.out.println();
+			assertFalse(Arrays.equals(testSetRegion, s1.getRegion(4)));
+	}
+	*/
 @Test	
 public void shuffleArray_Test() throws Exception
 		{
