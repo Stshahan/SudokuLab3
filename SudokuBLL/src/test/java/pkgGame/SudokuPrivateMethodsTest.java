@@ -21,7 +21,7 @@ public class SudokuPrivateMethodsTest {
 		}
 		testPuzzle.testFillDiagonal();
 		
-		//assertEquals(testPuzzle.hasDuplicates(),false);
+		assertEquals(testPuzzle.hasDuplicates(),false);
 		
 		int[] region0=testPuzzle.getRegion(0);
 		int[] region4=testPuzzle.getRegion(4);
@@ -31,7 +31,7 @@ public class SudokuPrivateMethodsTest {
 		assertEquals(testPuzzle.hasAllValues(region4,testRegion ),true);
 		assertEquals(testPuzzle.hasAllValues(region8,testRegion ),true);
 		
-		testPuzzle.PrintPuzzle();
+		
 	}
 
 }

@@ -287,6 +287,7 @@ public class Sudoku extends LatinSquare {
 	private void fillDiagonalRegions() {
 		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
 		int testValue;
+		this.setbIgnoreZero(true);
 		for(int numRegions = 0;numRegions<iSqrtSize;numRegions++) {
 			int regStartValue = iSqrtSize*(numRegions)+numRegions;
 			
