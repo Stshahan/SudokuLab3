@@ -289,6 +289,10 @@ public class Sudoku extends LatinSquare {
 		int testValue;
 		for(int numRegions = 0;numRegions<=iSqrtSize;numRegions++) {
 			int regStartValue = iSqrtSize*(numRegions*2);
+			
+			this.setRegion(regStartValue,workPuzzle);
+			
+			
 			for(int i = 0;i < iSqrtSize; i++) {
 				for(int j=0;j<iSqrtSize;j++) {
 					testValue = ThreadLocalRandom.current().nextInt(1,iSize+1);
@@ -297,6 +301,7 @@ public class Sudoku extends LatinSquare {
 					}
 					regFiller.add(testValue);
 					workPuzzle[regStartValue+i][regStartValue+j]=testValue;
+					
 				
 				
 				
