@@ -244,7 +244,7 @@ public class SudokuTest {
 		Sudoku LS= new Sudoku(puzzle);
 		LS.PrintPuzzle();
 	}
-	@Test
+	/*@Test
 	public void setRegion_Test() throws Exception
 	{
 		//	This test will test a partial sudoku...  
@@ -359,7 +359,9 @@ public class SudokuTest {
 			
 			assertFalse(Arrays.equals(testSetRegion, s1.getRegion(4)));
 	}
+	*/
 	
+	/*
 	@Test
 	public void FillDiagonalRegion_Test2() throws Exception
 	{
@@ -388,7 +390,7 @@ public class SudokuTest {
 			System.out.println();
 			assertFalse(Arrays.equals(testSetRegion, s1.getRegion(4)));
 	}
-	
+	*/
 @Test	
 public void shuffleArray_Test() throws Exception
 		{
