@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+
 import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
 import pkgHelper.PuzzleViolation;
@@ -285,44 +286,36 @@ public class Sudoku extends LatinSquare {
 	//something weird about the access. why private??
 	private void fillDiagonalRegions() {
 		ArrayList<Integer> regFiller=new ArrayList<Integer>(iSize);
-		int[][] workPuzzle=this.getPuzzle();
 		int testValue;
-		for(int numRegions = 0;numRegions<=iSqrtSize;numRegions++) {
-			int regStartValue = iSqrtSize*(numRegions*2);
+		for(int numRegions = 0;numRegions<iSqrtSize;numRegions++) {
+			int regStartValue = iSqrtSize*(numRegions)+numRegions;
 			
-			//this.setRegion(regStartValue,workPuzzle[regStartValue]);
+			//this.setRegion(regStartValue,workPuzzle[]);
 			
+			int[]randomRegion=new int[iSize];
 		
-			for(int i = 0;i < iSqrtSize; i++) {
-				for(int j=0;j<iSqrtSize;j++) {
+			for(int i = 0;i < iSize; i++) {
 					testValue = ThreadLocalRandom.current().nextInt(1,iSize+1);
 					while(regFiller.contains(testValue)) {
 						testValue=ThreadLocalRandom.current().nextInt(1,iSize+1);
 					}
 					regFiller.add(testValue);
-					workPuzzle[regStartValue+i][regStartValue+j]=testValue;
+					randomRegion[i]=testValue;
 					
+				//workPuzzle.getRegion(regionStartValue)[i][j] = testValue;
 				
 				
-				
-				}
 			}
 			regFiller.clear();
+			this.setRegion(regStartValue, randomRegion);
 		}
-		this.setLatinSquare(workPuzzle);
 	}
-	
-/*	public int[][] fillDiagonalTest(int sizeOfPuzzle) throws Exception {
+
+	public void testFillDiagonal() {
 		
-		Sudoku testPuzzle = new Sudoku(sizeOfPuzzle);
+		this.fillDiagonalRegions();
 		
-		testPuzzle.fillDiagonalRegions();
-		
-		
-		
-	}*/
-	
-	public void testFillDiagonal
+	}
 	
 	public void setRegion(int r, int [] region) {
 
