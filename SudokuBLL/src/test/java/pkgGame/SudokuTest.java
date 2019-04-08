@@ -272,9 +272,11 @@ int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
 	@Test
 
 	private void PrintStars() {
-		for(int i=0;i<=20;i++) {
-			System.out.print("*");
-			System.out.println();
+		for(int i=0;i<super.getLatinSquare().length;i++) {
+			for(int j=0;j<super.getLatinSquare().length;j++) {
+				System.out.print("*" + " ");
+			}
+			System.out.println("\n");
 		}
 	}
 
