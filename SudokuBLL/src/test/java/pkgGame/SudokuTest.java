@@ -271,13 +271,22 @@ int[][] puzzleTest	={{1, 2, 3, 0, 0, 0, 0, 0, 0},
 	}
 	@Test
 
-	private void PrintStars() {
-		for(int i=0;i<super.getLatinSquare().length;i++) {
-			for(int j=0;j<super.getLatinSquare().length;j++) {
-				System.out.print("*" + " ");
-			}
-			System.out.println("\n");
-		}
+	private void PrintStars() throws Exception {
+		Sudoku s1= null;
+		
+		int[][] puzzle = { 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' }, 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' }, 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' }, 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' }, 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' },
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' }, 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' }, 
+				{ '*', '*', '*', '*', '*', '*', '*', '*', '*' } };
+		s1=new Sudoku(puzzle);
+		
+		s1.PrintPuzzle();
 	}
 
 
